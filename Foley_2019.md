@@ -1,65 +1,67 @@
-# From Foley et al 2019
+# From mcSCRB-Seq, Smart-3Seq
 
-1. Place the RNase inhibitor and SMARTScribe reverse transcriptase on ice and thaw the frozen TS-RT reagents to room temperature in your pre-PCR workstation.
+- mcSCRB-seq protocol (https://www.protocols.io/view/mcscrb-seq-protocol-p9kdr4w) -> note that in this protocol the first strand synthesis/template switch concentrations are double the final concentration
 
-2. Start Program 1: Frag + TS-RT in a designated amplification-free thermal cycler to pre-warm it.
+## First Strand Synthesis and Template Switch
 
-	### Program 1: Frag + TS-RT	- 80 °C hold (add tube containing RNA and Fragmentation Mix)	- 80 °C 5 min	- 42 °C hold (add TS-RT Mix to tube)	- 42 °C 30 min	- 70 °C 10 min	- 4 °C hold
+1. Add the following reagents:
 
-3. To 1 μL total RNA sample in a low-retention PCR tube or microplate well, add 4.0 μL Fragmentation Mix and mix by pipetting:
+   | Reagent                | Volume (uL) |
+   | ---------------------- | ----------- |
+   | 5x Maxima buffer       | 4           |
+   | 1st strand primer pool | 2           |
+   | total RNA              | 10 ug       |
+   | **Total**              | **20**      |
 
-	- 2.0 μL SMARTScribe first-strand reaction buffer, 5X
-	- 1.0 μL nuclease-free dNTP mix, 10 mM each
-	- 0.5 μL 1S primer, 20 μM
-	- 0.5 μL MgCl2, 80 mM
+2. Place samples in thermo-cycler and run the following cycle:  **70°C 1 min, 65°C 5 min, 60°C Hold**
 
-4. When Program 1 has reached the 80 C hold, place the tube in the thermal cycler and end the hold.
+3. Make the enzyme dNTP mix for each sample as detailed below:
 
-5. When the thermal cycler reaches the 42 C hold, remove and briefly centrifuge the tube, then add 5.0 μL TS-RT Mix and mix by pipetting:
+| Reagent (final concentration per protocol in parentheses)    | Volume (uL) |
+| ------------------------------------------------------------ | ----------- |
+| 5X Maxima buffer                                             | 4           |
+| 25 mM dNTP mix (25 mM of each dNTP; final conc = 1 mM mcSCRB-seq protocol, 0.5 mM Dwyer protocol, 1 mM Smart3Seq protocol, 0.5 mM Thermo protocol -> try 1 mM for now) | 1.6         |
+| 50% PEG 8000 mix (7.5% mcSCRB-seq)                           | 6           |
+| TSO 50 uM stock (2 uM mcSCRB-seq, 1 uM Smart3Seq protocol -> try 1 uM for now) | 0.8         |
+| 200 U/uL Maxima H Minus RT (2 U/uL mcSCRB-Seq, 10 U/uL Thermo protocol -> try 10 U/uL for now) | 2           |
+| ddH2O                                                        | 5.6         |
+| **Total**                                                    | **20**      |
 
-	- 2.0 μL TMG, 5 M
-	- 1.0 μL DTT, 20 mM
-	- 0.5 μL RNase inhibitor, 20X
-	- 0.5 μL 2S primer, 20 μM
-	- 1.0 μL SMARTScribe reverse transcriptase, 100 U/μL
+4. Heat dNTP mix to **60°C** by placing it in the thermo-cycler containing the template/primer mix
+5. Directly add 20 uL dNTP mix to the template/primer mix, ensuring that both samples are kept at **60°C**
+   - **Note:** Maintaining a temperature of **55-60°C** is crucial for minimizing non-specific primer annealing and thus off-target 1st stand products.
+6. Allow the 1st strand synthesis reaction to proceed for **90 min** (vs 90 min in mcSCRB protocol)
+7. Incubate sample at **85°C** for 5 minutes to inactivate the enzyme
+   - Will likely eliminate RNA hydrolysis step in the future but do it for now for sake of equivalent comparison. Elute in 18 uL DEPC H2O on this step (save 1 uL for analysis).
+   - Huang et al 2013 (NAR) and Okello et al 2010 (PLoS One) shows RT enzyme severely inhibits the PCR reaction which is reason to inactivate it
 
-6. Immediately return the tube to the thermal cycler and end the 42 C hold.
+Purify the DNA at this step with the column purification method from the original MPE-Seq protocol
 
-Final PCR
+- Sasaki et al 2007 (NAR) shows that exonuclease I is significantly inhibited by PEG
+- Okello et al 2010 (PLoS One) suggests that PCI Microcon results in higher yield PCR than the Zymo-like ethanol-based MinElute
 
-1. Thaw the frozen PCR reagents to room temperature.
+## Exonuclease I Treatment
 
-2. Just before needed, start Program 2: PCR in a thermal cycler designated for PCR, using the appropriate number of cycles for your library (see “Choosing the number of PCR cycles”).
+Since the unextended primer cannot be sequenced, we can have a less stringent purification than biotin-streptavidin now.
 
-3. Once Program 1 reaches the 4 ÅãC hold, remove and briefly centrifuge the tube, then, still in your pre-PCR workstation, add 2.5 μL PCR primer mix with this library's unique combination of indexes, 2 μM each.
+1. Prepare the following reaction mix:
 
-4. Add 12.5 μL HiFi HotStart ReadyMix, 2X, and mix by pipetting.
+| Reagent                  | Volume (uL) |
+| ------------------------ | ----------- |
+| cDNA                     | 17 uL       |
+| 10X Exonuclease I buffer | 2 uL        |
+| Exonuclease I            | 1 uL        |
 
-5. When Program 2 has reached the 98 °C hold, place the tube in the thermal cycler and end the hold.
+2. Place samples in thermo-cycler and run the following cycle: **37°C 45 min (ExoI digest), 80°C 15 min (heat inactivate), 4°C Hold**
+   - Timing based of off considerations of Enroth et al 2019, NEB protocol, mcSCRB protocol
 
-6. Continue with the cleanup protocol for either Option 1 or Option 2.
+## Things to consider optimizing
 
-Option 1: Individual libraries, final PCR
-
-1. When Program 2 reaches the 4 C hold and the sample has cooled, briefly centrifuge the tube, add 55 μL diluted SPRI bead mix and mix very well:
-
-	- 25 μL molecular biology–grade water
-	- 30 μL SPRI bead mix
-
-2. Incubate the tube 1 min at room temperature.
-
-3. Place the tube on the magnet and wait for the beads to separate completely (~ 2 min on V&P 771LD).
-
-4. Without disturbing the pellet, remove and discard all the supernatant. Note: low-retention pipet tips are not necessary for steps 4–6.
-
-5. Still on the magnet, add 200 μL freshly prepared 80% ethanol to the tube and wait 30 s.
-
-6. Remove and discard the supernatant. Use a smaller pipet to collect residual droplets.
-
-7. Leave the tube open to air-dry 1 min. Do not overdry the pellet or it will be difficult to resuspend.
-
-8. Remove the tube from the magnet, thoroughly resuspend the pellet in 10 μL DNA Storage Buffer and wait 30 s.
-
-9. Return the tube to the magnet and allow the beads to separate completely.
-
-10. Transfer the supernatant to a new tube. This is your sequencing-ready library.
+- Temperature (55,60, 65)
+- Remove RNA hydrolysis step
+- 1st strand synthesis time
+- RNA purification method
+- PEG concentration (just verify better than no PEG)
+- Add exonuclease I buffer plus enzyme directly into cDNA end reaction then purify after exonuclease I treatment
+- +Trehalose ()
+- +MgCl2 ()
