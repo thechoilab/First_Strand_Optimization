@@ -445,11 +445,11 @@ In this step biotin will be coupled to the aminoallyl groups incorporated into t
 | 1st Strand Extension Primer | 1           |
 | Total                       | 47          |
 
-2. Incubate each sample at **65° C** for **2 min**.
+2. Incubate each sample at **65°C** for **2 min**.
 3. Cool samples to RT by placing on bench top for **~5min**.
 4. Add 3 uL of Klenow exo- enzyme to each sample.
-5. Incubate samples at **25°**** C (room temperature) **for** 5 min
-6. Heat samples to **37° C** and incubate for **30 min**  (can stop here and place samples at -20C)
+5. Incubate samples at **25°C** (room temperature) **for** 5 min
+6. Heat samples to **37°C** and incubate for **30 min**  (can stop here and place samples at -20C)
 7. Perform **streptavidin bead purification** n each sample
 8. Perform **column purification** n each sample eluting with 33uL of DEPC H20
 9. You now have a library ready for PCR amplification
@@ -464,6 +464,8 @@ This step is performed to determine the number of cycles to amplify each sample
 
 1. Perform triplicate qPCR reactions on each sample by mixing the following qPCR reaction mix:
 
+##### Using Phusion
+
 | Reagent                      | Volume (uL) |
 | ---------------------------- | ----------- |
 | 5X Phusion Buffer            | 10          |
@@ -473,12 +475,27 @@ This step is performed to determine the number of cycles to amplify each sample
 | Nextera 7xx Primer           | 2.5         |
 | Phusion Polymerase           | 0.5         |
 | DMSO                         | 0.5         |
-| SyBr Green                   | 0.5         |
+| SyBr Green/EvaGreen          | 0.5         |
 | H2O                          | 30.5        |
+| Total                        | 50 uL       |
+
+##### Using KAPA
+
+| Reagent                      | Volume (uL) |
+| ---------------------------- | ----------- |
+| 2X KAPA Master Mix           | 25          |
+| 1st Strand Extension Product | 2           |
+| Nextera 5xx Primer           | 2.5         |
+| Nextera 7xx Primer           | 2.5         |
+| DMSO                         | 0.5         |
+| SyBr Green/EvaGreen          | 0.5         |
+| H2O                          | 17          |
 | Total                        | 50 uL       |
 
 2. Aliquot 15uL of each qPCR reaction mix into 3 separate wells of a qPCR plate
 3. Perform the following qPCR cycling:
+
+##### Using Phusion
 
 | **Denaturation:**                                            |
 | ------------------------------------------------------------ |
@@ -486,15 +503,30 @@ This step is performed to determine the number of cycles to amplify each sample
 | **Amplification (40x):**                                     |
 | 98 °C        10 sec<br />62 °C        20 sec<br />72 °C        30 sec |
 | **Final elongation:**                                        |
-| 72 °C        3 min                                           |
+| 72 °C        3 min<br />4 °C        Hold                     |
+
+**Using KAPA**
+
+| **Denaturation:**                                            |
+| ------------------------------------------------------------ |
+| 98°C        45 s                                             |
+| **Amplification (40x):**                                     |
+| 98 °C        15 sec<br />62 °C        30 sec<br />72 °C        30 sec |
+| **Final elongation:**                                        |
+| 72 °C        1 min<br />4 °C        Hold                     |
+
+
 
 4. After the qPCR calculate the Ct value for each sample and average the 3 values for each library
 5. Calculate the number of amplification cycles to perform by adding 3 to the average Ct value and rounding to the nearest whole number.
-   - **Note:** This cycle number will vary from sample to sample by a few cycles. A good _S. cerevisiae_ library should have a Ct of ~12-16 cycles (15-19 cycles after addition of 3).  Experiments in our lab have determined that if a library has a Ct of greater than 18, the libraries are likely low quality.  Generally, this means a high proportion of 1st strand and 1st strand extension primer dimer reads will be present in the sequencing data.
+
+- **Note:** This cycle number will vary from sample to sample by a few cycles. A good _S. cerevisiae_ library should have a Ct of ~12-16 cycles (15-19 cycles after addition of 3).  Experiments in our lab have determined that if a library has a Ct of greater than 18, the libraries are likely low quality.  Generally, this means a high proportion of 1st strand and 1st strand extension primer dimer reads will be present in the sequencing data.
 
 #### **PCR Amplification:**
 
 1. For each sample, prepare the following PCR reaction mix:
+
+##### Using Phusion
 
 | Reagent                      | Volume (uL) |
 | ---------------------------- | ----------- |
@@ -506,17 +538,47 @@ This step is performed to determine the number of cycles to amplify each sample
 | Phusion Polymerase           | 0.5         |
 | DMSO                         | 0.5         |
 | H2O                          | 23          |
+| Total                        | 50          |
+
+##### Using KAPA
+
+| Reagent                      | Volume (uL) |
+| ---------------------------- | ----------- |
+| 2X KAPA Master Mix           | 25          |
+| 1st Strand Extension Product | 10          |
+| Nextera 5xx Primer           | 2.5         |
+| Nextera 7xx Primer           | 2.5         |
+| DMSO                         | 0.5         |
+| H2O                          | 9.5         |
+| Total                        | 50          |
 
 1. Run the following cycling conditions on each PCR reaction mix:
 
-   | **Denaturation:**                                            |
-   | ------------------------------------------------------------ |
-   | 98°C        30 s                                             |
-   | **Amplification (Cycle # determined in step 5 of qPCR):**    |
-   | 98 °C        10 sec<br />62 °C        20 sec<br />72 °C        30 sec |
-   | **Final elongation:**                                        |
-   | 72 °C        3 min<br />4 °C        Hold                     |
+##### Using Phusion
+
+| **Denaturation:**                                            |
+| ------------------------------------------------------------ |
+| 98°C        30 s                                             |
+| **Amplification (Cycle # determined in step 5 of qPCR):**    |
+| 98 °C        10 sec<br />62 °C        20 sec<br />72 °C        30 sec |
+| **Final elongation:**                                        |
+| 72 °C        3 min<br />4 °C        Hold                     |
+
+##### **Using KAPA **
+
+| **Denaturation:**                                            |
+| ------------------------------------------------------------ |
+| 98°C        45 s                                             |
+| **Amplification (Cycle # determined in step 5 of qPCR):**    |
+| 98 °C        15 sec<br />62 °C        30 sec<br />72 °C        30 sec |
+| **Final elongation:**                                        |
+| 72 °C        1 min<br />4 °C        Hold                     |
 
 ### Ampure bead size selection
 
 Purify with Ampure beads. Do with Ampure bead ratio of 0.8.
+
+https://www.neb.com/protocols/2015/09/16/protocol-for-use-with-nebext-ultra-ii-dna-library-prep-kit-for-illumina-and-with-sample-purification-beads-e7645-e7103
+
+https://www.neb.com/protocols/1/01/01/size-selection-using-ampure-xp-beads-e7330
+

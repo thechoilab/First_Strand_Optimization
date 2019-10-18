@@ -54,14 +54,13 @@ Since the unextended primer cannot be sequenced, we can have a less stringent pu
 
 2. Place samples in thermo-cycler and run the following cycle: **37°C 45 min (ExoI digest), 80°C 15 min (heat inactivate), 4°C Hold**
    - Timing based of off considerations of Enroth et al 2019, NEB protocol, mcSCRB protocol
+3. Consider purifying before PCR at this step.
 
 ## Things to consider optimizing
 
 - Temperature (55,60, 65)
-- Remove RNA hydrolysis step
 - 1st strand synthesis time
-- RNA purification method
-- PEG concentration (just verify better than no PEG)
-- Add exonuclease I buffer plus enzyme directly into cDNA end reaction then purify after exonuclease I treatment
-- +Trehalose ()
-- +MgCl2 ()
+- Purification after exonuclease I treatment before PCR
+- +PEG (7.5%)
+- +Trehalose (0.6M)
+- +Betaine (1M)

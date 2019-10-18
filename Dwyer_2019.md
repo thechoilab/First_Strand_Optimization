@@ -36,6 +36,6 @@ Here the biotin-11-dUTP + TTP concentration is at 10 mM combined.
 7. Incubate sample at **80°C** for 10 min to inactivate the enzyme
    - **Note:** Sample volume is now 40uL
    - This is a good stopping point for Day 1- put samples at -20°C (or you can go through the RNA hydrolysis step as well and then freeze at -20°C). 
-   - **Everything else is the same, except the coupling step is unnecessary. Therefore, during the column clean-up after RNA hydrolysis we elute with 50 µL and go straight into the bead purification.**
+   - **Per Zach: Everything else is the same, except the coupling step is unnecessary. Therefore, during the column clean-up after RNA hydrolysis we elute with 50 µL and go straight into the bead purification.**
 
 # Things to consider optimizing
