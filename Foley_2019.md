@@ -1,6 +1,7 @@
 # From mcSCRB-Seq, Smart-3Seq
 
 - mcSCRB-seq protocol (https://www.protocols.io/view/mcscrb-seq-protocol-p9kdr4w) -> note that in this protocol the first strand synthesis/template switch concentrations are double the final concentration
+- http://core-genomics.blogspot.com/2012/04/how-do-spri-beads-work.html
 
 ## First Strand Synthesis and Template Switch
 
