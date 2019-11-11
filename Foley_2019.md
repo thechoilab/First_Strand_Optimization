@@ -9,10 +9,10 @@
 
    | Reagent                                              | Volume (uL)   |
    | ---------------------------------------------------- | ------------- |
-   | 5x Maxima buffer                                     | 4             |
+   | 5x Maxima buffer                                     | 3.75          |
    | 1st strand primer pool (~1.5 uM final concentration) | 1             |
    | total RNA                                            | 10 ug (14 uL) |
-   | **Total**                                            | **18**        |
+   | **Total**                                            | **18.75**     |
 
 2. Place samples in thermo-cycler and run the following cycle:  **70°C 1 min, 65°C 5 min, 4°C Hold**
 
